@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
+import { UncontrolledCollapse, Button, CardBody, Card } from 'reactstrap';
 import "./App.css";
 import axios from 'axios';
+import ReadMoreButton from "./components/moreButton.js";
 
 function App() {
   // Image state
@@ -8,8 +10,8 @@ function App() {
   const [copyright, setCopyright] = useState('');
   const [date, setDate] = useState('');
   const [exp, setExp] = useState('');
-  const [title, setTitle] = useState('')
-  const [url, setUrl] = useState('')
+  const [title, setTitle] = useState('');
+  const [url, setUrl] = useState('');
 
   useEffect(() => {
     axios
@@ -44,8 +46,8 @@ function App() {
         <div className="photoInfo">
           <h1>{title}</h1>
           <h2>&copy; {copyright} {date}</h2>
-          <p className="photoExplaination" >{exp}</p>
-          <a href={url}>Download Image</a>
+          // <p className="photoExplaination" >{exp}</p>
+          <ReadMoreButton />
         </div>
       </div>
     </div>
